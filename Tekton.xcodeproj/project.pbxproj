@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		144BF9494DC313E17F777DE5 /* Pods_TektonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C417AA42583AF63B06AB45 /* Pods_TektonTests.framework */; };
+		999BABC1C582EEC96B838328 /* Pods_Tekton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FC5C7F84E2CE980B5782D9 /* Pods_Tekton.framework */; };
+		A09FF01F6C1FA464FFA7E189 /* Pods_Tekton_TektonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690580FF0642E053ABF8BB3C /* Pods_Tekton_TektonUITests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4204A3E02D973461004EE7B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,9 +30,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070A0C546DD2CDF953300390 /* Pods-Tekton-TektonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tekton-TektonUITests.debug.xcconfig"; path = "Target Support Files/Pods-Tekton-TektonUITests/Pods-Tekton-TektonUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4204A3CF2D97345F004EE7B6 /* Tekton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tekton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4204A3DF2D973461004EE7B6 /* TektonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TektonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4204A3E92D973461004EE7B6 /* TektonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TektonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58FC5C7F84E2CE980B5782D9 /* Pods_Tekton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tekton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		690580FF0642E053ABF8BB3C /* Pods_Tekton_TektonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tekton_TektonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A12D75249C000149C72D407 /* Pods-Tekton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tekton.release.xcconfig"; path = "Target Support Files/Pods-Tekton/Pods-Tekton.release.xcconfig"; sourceTree = "<group>"; };
+		9B832996572F7469997808E4 /* Pods-TektonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TektonTests.debug.xcconfig"; path = "Target Support Files/Pods-TektonTests/Pods-TektonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E99C4110E9B6D6C8DEE99D8 /* Pods-Tekton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tekton.debug.xcconfig"; path = "Target Support Files/Pods-Tekton/Pods-Tekton.debug.xcconfig"; sourceTree = "<group>"; };
+		B70A58D9C46B2D7B384EB00C /* Pods-Tekton-TektonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tekton-TektonUITests.release.xcconfig"; path = "Target Support Files/Pods-Tekton-TektonUITests/Pods-Tekton-TektonUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D1C417AA42583AF63B06AB45 /* Pods_TektonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TektonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F361B41ED5E7ACE9E3DEE58C /* Pods-TektonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TektonTests.release.xcconfig"; path = "Target Support Files/Pods-TektonTests/Pods-TektonTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				999BABC1C582EEC96B838328 /* Pods_Tekton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144BF9494DC313E17F777DE5 /* Pods_TektonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +83,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09FF01F6C1FA464FFA7E189 /* Pods_Tekton_TektonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EA3CDBA1379D5243054A316 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E99C4110E9B6D6C8DEE99D8 /* Pods-Tekton.debug.xcconfig */,
+				7A12D75249C000149C72D407 /* Pods-Tekton.release.xcconfig */,
+				070A0C546DD2CDF953300390 /* Pods-Tekton-TektonUITests.debug.xcconfig */,
+				B70A58D9C46B2D7B384EB00C /* Pods-Tekton-TektonUITests.release.xcconfig */,
+				9B832996572F7469997808E4 /* Pods-TektonTests.debug.xcconfig */,
+				F361B41ED5E7ACE9E3DEE58C /* Pods-TektonTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4204A3C62D97345F004EE7B6 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +110,8 @@
 				4204A3E22D973461004EE7B6 /* TektonTests */,
 				4204A3EC2D973461004EE7B6 /* TektonUITests */,
 				4204A3D02D97345F004EE7B6 /* Products */,
+				2EA3CDBA1379D5243054A316 /* Pods */,
+				D7C3D95A6F6D0CCD0EF91D53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +125,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D7C3D95A6F6D0CCD0EF91D53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58FC5C7F84E2CE980B5782D9 /* Pods_Tekton.framework */,
+				690580FF0642E053ABF8BB3C /* Pods_Tekton_TektonUITests.framework */,
+				D1C417AA42583AF63B06AB45 /* Pods_TektonTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4204A3F32D973461004EE7B6 /* Build configuration list for PBXNativeTarget "Tekton" */;
 			buildPhases = (
+				2915BDA91667559FD5A4DC1A /* [CP] Check Pods Manifest.lock */,
 				4204A3CB2D97345F004EE7B6 /* Sources */,
 				4204A3CC2D97345F004EE7B6 /* Frameworks */,
 				4204A3CD2D97345F004EE7B6 /* Resources */,
+				B05B89D1E32FF564FF54FB5C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -111,8 +156,6 @@
 				4204A3D12D97345F004EE7B6 /* Tekton */,
 			);
 			name = Tekton;
-			packageProductDependencies = (
-			);
 			productName = Tekton;
 			productReference = 4204A3CF2D97345F004EE7B6 /* Tekton.app */;
 			productType = "com.apple.product-type.application";
@@ -121,6 +164,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4204A3F62D973461004EE7B6 /* Build configuration list for PBXNativeTarget "TektonTests" */;
 			buildPhases = (
+				19EADEF81C108A24C044243C /* [CP] Check Pods Manifest.lock */,
 				4204A3DB2D973461004EE7B6 /* Sources */,
 				4204A3DC2D973461004EE7B6 /* Frameworks */,
 				4204A3DD2D973461004EE7B6 /* Resources */,
@@ -134,8 +178,6 @@
 				4204A3E22D973461004EE7B6 /* TektonTests */,
 			);
 			name = TektonTests;
-			packageProductDependencies = (
-			);
 			productName = TektonTests;
 			productReference = 4204A3DF2D973461004EE7B6 /* TektonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -144,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4204A3F92D973461004EE7B6 /* Build configuration list for PBXNativeTarget "TektonUITests" */;
 			buildPhases = (
+				CB9D00AA27F59D835BF72CFA /* [CP] Check Pods Manifest.lock */,
 				4204A3E52D973461004EE7B6 /* Sources */,
 				4204A3E62D973461004EE7B6 /* Frameworks */,
 				4204A3E72D973461004EE7B6 /* Resources */,
+				A7C15420BEF58C1024D77F5D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,8 +201,6 @@
 				4204A3EC2D973461004EE7B6 /* TektonUITests */,
 			);
 			name = TektonUITests;
-			packageProductDependencies = (
-			);
 			productName = TektonUITests;
 			productReference = 4204A3E92D973461004EE7B6 /* TektonUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -230,6 +272,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19EADEF81C108A24C044243C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TektonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2915BDA91667559FD5A4DC1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tekton-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7C15420BEF58C1024D77F5D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tekton-TektonUITests/Pods-Tekton-TektonUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tekton-TektonUITests/Pods-Tekton-TektonUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tekton-TektonUITests/Pods-Tekton-TektonUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B05B89D1E32FF564FF54FB5C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tekton/Pods-Tekton-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tekton/Pods-Tekton-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tekton/Pods-Tekton-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB9D00AA27F59D835BF72CFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tekton-TektonUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4204A3CB2D97345F004EE7B6 /* Sources */ = {
@@ -306,7 +451,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -369,7 +514,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -390,12 +535,14 @@
 		};
 		4204A3F42D973461004EE7B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E99C4110E9B6D6C8DEE99D8 /* Pods-Tekton.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tekton/Preview Content\"";
+				DEVELOPMENT_TEAM = P4WC5T5FA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -418,12 +565,14 @@
 		};
 		4204A3F52D973461004EE7B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A12D75249C000149C72D407 /* Pods-Tekton.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tekton/Preview Content\"";
+				DEVELOPMENT_TEAM = P4WC5T5FA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -446,6 +595,7 @@
 		};
 		4204A3F72D973461004EE7B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B832996572F7469997808E4 /* Pods-TektonTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -464,6 +614,7 @@
 		};
 		4204A3F82D973461004EE7B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F361B41ED5E7ACE9E3DEE58C /* Pods-TektonTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -482,6 +633,7 @@
 		};
 		4204A3FA2D973461004EE7B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 070A0C546DD2CDF953300390 /* Pods-Tekton-TektonUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -498,6 +650,7 @@
 		};
 		4204A3FB2D973461004EE7B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B70A58D9C46B2D7B384EB00C /* Pods-Tekton-TektonUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
