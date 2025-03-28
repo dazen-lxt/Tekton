@@ -1,0 +1,110 @@
+//
+//  CurrentRideViewModel.swift
+//  Tekton
+//
+//  Created by Carlos Mario Muñoz on 28/03/25.
+//
+
+import Foundation
+import CoreLocation
+import Combine
+
+final class CurrentRideViewModel: ObservableObject {
+    @Published var isTracking: Bool = false
+    @Published var currentLocation: CLLocationCoordinate2D?
+    @Published var route: [CLLocationCoordinate2D] = [] {
+        didSet {
+            calculateTotalDistance()
+        }
+    }
+    @Published var timerString: String = "00:00:00"
+    @Published var hasRideEnded: Bool = false
+    
+    private var totalDistance: Double = 0
+    private var rideService: RideTrackingServiceProtocol
+    private var cancellables = Set<AnyCancellable>()
+    private var timer: Timer?
+    private var secondsElapsed = 0
+    
+    var formattedDistance: String {
+        if totalDistance >= 1000 {
+            let km = totalDistance / 1000
+            return String(format: "%.1f km", km)
+        } else {
+            return String(format: "%.0f m", totalDistance)
+        }
+    }
+    
+    init(rideService: RideTrackingServiceProtocol = MockRideTrackingService()) {
+        self.rideService = rideService
+        bindLocation()
+    }
+    
+    func startTracking() {
+        isTracking = true
+        secondsElapsed = 0
+        startTimer()
+        rideService.startTracking()
+    }
+
+    func stopTracking() {
+        stopTimer()
+        rideService.stopTracking()
+        isTracking = false
+        hasRideEnded = true
+    }
+    
+    func storeRide() {
+        endRide()
+    }
+
+    func endRide() {
+        hasRideEnded = false
+        timerString = "00:00:00"
+        totalDistance = 0
+        route = []
+    }
+
+    private func bindLocation() {
+        rideService.locationPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] coord in
+                guard let self = self else { return }
+                self.currentLocation = coord
+                if self.isTracking {
+                    self.route.append(coord)
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.secondsElapsed += 1
+            self.timerString = self.formatTime(self.secondsElapsed)
+        }
+    }
+
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+
+    private func formatTime(_ totalSeconds: Int) -> String {
+        let hours = totalSeconds / 3600
+        let minutes = (totalSeconds % 3600) / 60
+        let seconds = totalSeconds % 60
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+    
+    private func calculateTotalDistance() {
+        guard route.count > 1 else { return }
+        var distance: Double = 0
+        for i in 1..<route.count {
+            let start = CLLocation(latitude: route[i-1].latitude, longitude: route[i-1].longitude)
+            let end = CLLocation(latitude: route[i].latitude, longitude: route[i].longitude)
+            distance += start.distance(from: end)
+        }
+        totalDistance = distance
+    }
+}
