@@ -10,20 +10,21 @@ import CoreLocation
 import Combine
 
 final class RideTrackingService: NSObject, RideTrackingServiceProtocol {
-    private let locationManager = CLLocationManager()
+    private var locationManager: LocationManaging
     private let locationSubject = PassthroughSubject<CLLocationCoordinate2D, Never>()
     private var isTracking = false
 
     var locationPublisher: AnyPublisher<CLLocationCoordinate2D, Never> {
         return locationSubject.eraseToAnyPublisher()
     }
-
-    override init() {
+    
+    init(locationManager: LocationManaging = CLLocationManager()) {
+        self.locationManager = locationManager
         super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.allowsBackgroundLocationUpdates = true
+        self.locationManager.pausesLocationUpdatesAutomatically = false
     }
 
     func requestAuthorization() {
@@ -31,12 +32,18 @@ final class RideTrackingService: NSObject, RideTrackingServiceProtocol {
     }
 
     func startTracking() {
-        guard CLLocationManager.locationServicesEnabled() else {
-            print("Los servicios de ubicación no están habilitados.")
-            return
-        }
         isTracking = true
-        locationManager.startUpdatingLocation()
+
+        switch locationManager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied, .restricted:
+            print("Location permission not granted.")
+        @unknown default:
+            break
+        }
     }
 
     func stopTracking() {
@@ -57,14 +64,16 @@ extension RideTrackingService: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse:
-            print("Permiso concedido.")
+        case .authorizedWhenInUse, .authorizedAlways:
+            if isTracking {
+                locationManager.startUpdatingLocation()
+            }
         case .denied, .restricted:
-            print("Permiso denegado o restringido.")
+            print("Location access denied.")
         case .notDetermined:
-            print("Permiso no determinado.")
+            break
         @unknown default:
-            print("Estado de autorización desconocido.")
+            break
         }
     }
 }
