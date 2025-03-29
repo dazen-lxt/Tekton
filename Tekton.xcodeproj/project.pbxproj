@@ -34,6 +34,7 @@
 		4204A3CF2D97345F004EE7B6 /* Tekton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tekton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4204A3DF2D973461004EE7B6 /* TektonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TektonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4204A3E92D973461004EE7B6 /* TektonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TektonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		423392BA2D987C400098694B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58FC5C7F84E2CE980B5782D9 /* Pods_Tekton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tekton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		690580FF0642E053ABF8BB3C /* Pods_Tekton_TektonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tekton_TektonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A12D75249C000149C72D407 /* Pods-Tekton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tekton.release.xcconfig"; path = "Target Support Files/Pods-Tekton/Pods-Tekton.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		4204A3C62D97345F004EE7B6 = {
 			isa = PBXGroup;
 			children = (
+				423392BA2D987C400098694B /* Info.plist */,
 				4204A3D12D97345F004EE7B6 /* Tekton */,
 				4204A3E22D973461004EE7B6 /* TektonTests */,
 				4204A3EC2D973461004EE7B6 /* TektonUITests */,
@@ -466,6 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -523,6 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
