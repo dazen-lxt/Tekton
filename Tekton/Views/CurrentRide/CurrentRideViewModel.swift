@@ -60,6 +60,7 @@ final class CurrentRideViewModel: ObservableObject {
         hasRideEnded = true
     }
     
+    @MainActor
     func storeRide() async {
         self.isLoading = true
         if route.count > 0 {
@@ -69,7 +70,7 @@ final class CurrentRideViewModel: ObservableObject {
         }
         self.showSaveConfirmation = true
         self.isLoading = false
-        await endRide()
+        endRide()
     }
 
     @MainActor

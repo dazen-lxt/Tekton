@@ -13,7 +13,7 @@ struct AppContainer {
     
     func makeCurrentRideView() -> CurrentRideView {
         let rideStorage = RideStorage(context: coreDataStack.context)
-        let rideService = MockRideTrackingService()
+        let rideService = RideTrackingService()
         let rideViewModel = CurrentRideViewModel(rideService: rideService, rideStorage: rideStorage)
         return CurrentRideView(viewModel: rideViewModel)
     }
