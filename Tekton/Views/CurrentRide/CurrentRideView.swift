@@ -9,7 +9,13 @@ import GoogleMaps
 import SwiftUI
 
 struct CurrentRideView: View {
-    @StateObject private var viewModel = CurrentRideViewModel()
+    
+    @ObservedObject private var viewModel: CurrentRideViewModel
+    
+    // MARK: - Initializer
+    init(viewModel: CurrentRideViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ZStack {
@@ -41,7 +47,9 @@ struct CurrentRideView: View {
                         duration: viewModel.timerString,
                         distance: viewModel.formattedDistance,
                         onStore: {
-                            viewModel.storeRide()
+                            Task {
+                                await viewModel.storeRide()
+                            }
                         },
                         onDelete: {
                             viewModel.endRide()
@@ -54,12 +62,28 @@ struct CurrentRideView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.green)
+                    .background(Color.orange)
                     .cornerRadius(10)
                     .padding(.bottom, 32)
                 }
             }
             .padding()
+            .alert("Your progress has been correctly stored!", isPresented: $viewModel.showSaveConfirmation) {
+                Button("OK", role: .cancel) { }
+            }
         }
+        .overlay(
+            Group {
+                if viewModel.isLoading {
+                    Color.black.opacity(0.4)
+                        .ignoresSafeArea()
+                    ProgressView("Saving...")
+                        .padding()
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(12)
+                }
+            }
+        )
+        .navigationTitle("Current Ride")
     }
 }

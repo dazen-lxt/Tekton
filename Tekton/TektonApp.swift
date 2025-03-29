@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct TektonApp: App {
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
-    
+    private let container = AppContainer()
     init() {
         GMSServices.provideAPIKey("AIzaSyDb_qgq7Pj_IQcYWnbiMAaW_KvBaKZ0PX4")
     }
@@ -20,7 +20,7 @@ struct TektonApp: App {
     var body: some Scene {
         WindowGroup {
             if hasSeenOnboarding {
-                CurrentRideView()
+                MainTabView(container: container)
             } else {
                 OnboardingView()
             }

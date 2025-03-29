@@ -19,12 +19,16 @@ final class CurrentRideViewModel: ObservableObject {
     }
     @Published var timerString: String = "00:00:00"
     @Published var hasRideEnded: Bool = false
+    @Published var showSaveConfirmation = false
+    @Published var isLoading = false
     
     private var totalDistance: Double = 0
     private var rideService: RideTrackingServiceProtocol
+    private var rideStorage: RideStorageProtocol
     private var cancellables = Set<AnyCancellable>()
     private var timer: Timer?
     private var secondsElapsed = 0
+    private var startDate = Date()
     
     var formattedDistance: String {
         if totalDistance >= 1000 {
@@ -35,14 +39,16 @@ final class CurrentRideViewModel: ObservableObject {
         }
     }
     
-    init(rideService: RideTrackingServiceProtocol = MockRideTrackingService()) {
+    init(rideService: RideTrackingServiceProtocol = MockRideTrackingService(), rideStorage: RideStorageProtocol) {
         self.rideService = rideService
+        self.rideStorage = rideStorage
         bindLocation()
     }
     
     func startTracking() {
         isTracking = true
         secondsElapsed = 0
+        startDate = Date()
         startTimer()
         rideService.startTracking()
     }
@@ -54,15 +60,43 @@ final class CurrentRideViewModel: ObservableObject {
         hasRideEnded = true
     }
     
-    func storeRide() {
-        endRide()
+    func storeRide() async {
+        self.isLoading = true
+        if route.count > 0 {
+            let startAddress = await getAddress(from: route.first!) ?? "Unknown"
+            let endAddress = await getAddress(from: route.last!) ?? "Unknown"
+            rideStorage.saveRide(startDate: startDate, duration: Double(secondsElapsed), distance: totalDistance, startPoint: startAddress, endPoint: endAddress)
+        }
+        self.showSaveConfirmation = true
+        self.isLoading = false
+        await endRide()
     }
 
+    @MainActor
     func endRide() {
         hasRideEnded = false
         timerString = "00:00:00"
         totalDistance = 0
         route = []
+    }
+    
+    private func getAddress(from coordinate: CLLocationCoordinate2D) async -> String? {
+        let geocoder = CLGeocoder()
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+
+        return await withCheckedContinuation { continuation in
+            geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                if let placemark = placemarks?.first {
+                    let name = placemark.name ?? ""
+                    let city = placemark.locality ?? ""
+                    let country = placemark.country ?? ""
+                    let address = [name, city, country].filter { !$0.isEmpty }.joined(separator: ", ")
+                    continuation.resume(returning: address)
+                } else {
+                    continuation.resume(returning: nil)
+                }
+            }
+        }
     }
 
     private func bindLocation() {

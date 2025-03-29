@@ -29,7 +29,7 @@ struct RideSummaryView: View {
                 }
                 .foregroundColor(.white)
                 .padding()
-                .background(Color.blue)
+                .background(Color.orange)
                 .cornerRadius(10)
                 
                 Button("Delete") {
