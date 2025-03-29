@@ -12,7 +12,7 @@ import CoreLocation
 final class MockRideTrackingService: RideTrackingServiceProtocol {
     private let subject = PassthroughSubject<CLLocationCoordinate2D, Never>()
     private var timer: Timer?
-    private var currentLocation = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194) // San Francisco
+    private var currentLocation = CLLocationCoordinate2D(latitude: 47.7749, longitude: -112.4194)
     private var cancellables = Set<AnyCancellable>()
 
     var locationPublisher: AnyPublisher<CLLocationCoordinate2D, Never> {
